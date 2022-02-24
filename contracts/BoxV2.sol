@@ -6,7 +6,7 @@ pragma solidity 0.8.4;
 // import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 
-contract Box {
+contract BoxV2 {
     uint256 private _value;
 
     // Emitted when the stored value changes
@@ -22,6 +22,11 @@ contract Box {
     // Reads the last stored value
     function retrieve() public view returns (uint256) {
         return _value;
+    }
+
+    function increment() public {
+        _value = _value + 1;
+        emit ValueChanged(_value);
     }
 
 }
